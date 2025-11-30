@@ -1,0 +1,4 @@
+streamlit
+solana
+base58
+pillow

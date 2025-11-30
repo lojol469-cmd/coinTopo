@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: topocoin-dashboard
+    env: python
+    buildCommand: "docker build -t topocoin ."
+    startCommand: "docker run -p $PORT:8501 topocoin"
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: PYTHONUNBUFFERED
+        value: "1"
