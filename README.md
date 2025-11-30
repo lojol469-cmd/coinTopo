@@ -181,6 +181,36 @@ L'application s'ouvrira dans votre navigateur à `http://localhost:8501`.
 - **Utilisez le wallet test** pour expérimenter sans risque
 - **Vérifiez les adresses** avant chaque transaction
 
+## Déploiement sur Render
+
+### Configuration automatique
+
+1. **Connectez votre compte GitHub** sur [Render](https://render.com)
+2. **Importez le repository** : `https://github.com/lojol469-cmd/coinTopo.git`
+3. **Configuration du service** :
+   - **Service Type** : Web Service
+   - **Runtime** : Docker
+   - **Branch** : main
+   - **Build Command** : `docker build -t topocoin .`
+   - **Start Command** : `docker run -p $PORT:8501 topocoin`
+
+### Variables d'environnement (optionnel)
+
+Si vous voulez configurer des variables spécifiques :
+- `PORT` : 8501 (automatique)
+- `PYTHONUNBUFFERED` : 1
+
+### URL de déploiement
+
+Une fois déployé, votre application sera accessible à une URL comme :
+`https://topocoin-dashboard.onrender.com`
+
+### Sécurité
+
+- **Ne commitez jamais** vos clés privées ou fichiers wallet
+- **Utilisez des variables d'environnement** pour les configurations sensibles
+- **Activez HTTPS** (automatique sur Render)
+
 ## Structure du Projet
 
 ```
