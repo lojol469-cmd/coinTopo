@@ -211,6 +211,31 @@ Une fois déployé, votre application sera accessible à une URL comme :
 - **Utilisez des variables d'environnement** pour les configurations sensibles
 - **Activez HTTPS** (automatique sur Render)
 
+## 🎨 Design Moderne
+
+L'application Topocoin dispose maintenant d'une interface moderne et élégante avec :
+
+### ✨ Fonctionnalités Visuelles
+- **Fond dégradé dynamique** : Bleu-violet élégant
+- **Cartes de solde stylées** : Design moderne avec effets de verre
+- **Boutons animés** : Effets hover et transitions fluides
+- **Typographie améliorée** : Police Inter pour une meilleure lisibilité
+- **Badges réseau** : Indicateurs visuels pour Devnet/Mainnet
+- **Animations subtiles** : Effets fade-in et hover
+- **Barre de défilement personnalisée** : Design cohérent
+
+### 🛠️ Technologies Utilisées
+- **CSS personnalisé** (`style.css`) : Styles modernes et responsives
+- **Streamlit** : Framework principal
+- **HTML/CSS** : Intégration directe pour les éléments complexes
+- **Google Fonts** : Police Inter pour une typographie moderne
+
+### 📱 Responsive Design
+L'application s'adapte automatiquement aux différentes tailles d'écran avec :
+- Design mobile-friendly
+- Grille adaptative
+- Éléments flexibles
+
 ## Structure du Projet
 
 ```
