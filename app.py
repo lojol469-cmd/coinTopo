@@ -13,6 +13,7 @@ from spl.token.instructions import (
     transfer_checked,
     mint_to,
     MintToParams,
+    TransferCheckedParams,
 )
 from config import *
 
@@ -301,13 +302,16 @@ if st.button("Envoyer au wallet test", type="primary"):
                 # Transfert avec transfer_checked (compatible Token-2022)
                 instructions.append(
                     transfer_checked(
-                        source=sender_ata,
-                        mint=mint_pubkey,
-                        destination=dest_ata,                 # attention : destination, pas "dest" !
-                        owner=wallet_pubkey,
-                        amount=int(send_amount * 10**TOKEN_DECIMALS),
-                        decimals=TOKEN_DECIMALS,
-                        program_id=TOKEN_PROGRAM_ID           # maintenant accepté ici
+                        TransferCheckedParams(
+                            program_id=TOKEN_PROGRAM_ID,
+                            source=sender_ata,
+                            mint=mint_pubkey,
+                            destination=dest_ata,
+                            owner=wallet_pubkey,
+                            amount=int(send_amount * 10**TOKEN_DECIMALS),
+                            decimals=TOKEN_DECIMALS,
+                            signers=[]
+                        )
                     )
                 )
 
