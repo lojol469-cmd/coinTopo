@@ -19,6 +19,17 @@ from config import *
 
 from config import *
 
+# ===================== CONFIGURATION CSS =====================
+def load_css():
+    """Load custom CSS styles"""
+    css_path = os.path.join(os.path.dirname(__file__), "style.css")
+    if os.path.exists(css_path):
+        with open(css_path) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Charger le CSS personnalisé
+load_css()
+
 # ===================== CONFIGURATION =====================
 # Configuration chargée depuis config.py
 KEYPAIR_PATH = os.path.expanduser(KEYPAIR_PATH)
@@ -168,11 +179,13 @@ def tpc_balance(pubkey: Pubkey) -> float:
 # ===================== INTERFACE =====================
 st.title(f"{PAGE_TITLE} – {current_network['name']}")
 
-# Afficher le logo
+# Afficher le logo avec style personnalisé
+st.markdown('<div class="logo-container">', unsafe_allow_html=True)
 logo_path = os.path.join(os.path.dirname(__file__), "topocoin_logo.png")
 st.image(logo_path, width=200)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Informations du token
+# Informations du token avec style amélioré
 col_logo, col_info = st.columns([1, 2])
 with col_logo:
     st.write("")
@@ -183,25 +196,43 @@ with col_info:
         explorer_link = f"{current_network['explorer']}/address/{TOKEN_MINT}?cluster={network}"
         st.write(f"**Explorer :** [🔍 Voir sur {current_network['name']}]({explorer_link})")
     st.write(f"**Décimales :** {TOKEN_DECIMALS}")
-    st.write(f"**Réseau :** {current_network['name']}")
+    network_badge_class = "network-devnet" if network == "devnet" else "network-mainnet"
+    st.markdown(f'<span class="network-badge {network_badge_class}">{current_network["name"]}</span>', unsafe_allow_html=True)
 
-st.subheader("Soldes actuels")
+# Soldes actuels avec cartes stylées
+st.subheader("💰 Soldes actuels")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write("**Wallet Principal**")
-    st.write(f"Adresse : `{wallet_pubkey}`")
-    st.write(f"SOL : **{sol_balance(wallet_pubkey):.4f}** SOL")
-    st.write(f"TPC : **{tpc_balance(wallet_pubkey):,.2f}** TPC")
+    st.markdown("""
+    <div class="balance-card">
+        <h4>🏦 Wallet Principal</h4>
+        <p class="amount">{:.4f} SOL</p>
+        <p class="amount">{:,.2f} TPC</p>
+        <p style="font-size: 12px; opacity: 0.8;">{}</p>
+    </div>
+    """.format(
+        sol_balance(wallet_pubkey),
+        tpc_balance(wallet_pubkey),
+        wallet_pubkey
+    ), unsafe_allow_html=True)
     if token_exists:
         explorer_link = f"{current_network['explorer']}/address/{wallet_pubkey}?cluster={network}"
         st.write(f"[🔍 Explorer]({explorer_link})")
 
 with col2:
-    st.write("**Wallet Test**")
-    st.write(f"Adresse : `{test_pubkey}`")
-    st.write(f"SOL : **{sol_balance(test_pubkey):.4f}** SOL")
-    st.write(f"TPC : **{tpc_balance(test_pubkey):,.2f}** TPC")
+    st.markdown("""
+    <div class="balance-card">
+        <h4>🧪 Wallet Test</h4>
+        <p class="amount">{:.4f} SOL</p>
+        <p class="amount">{:,.2f} TPC</p>
+        <p style="font-size: 12px; opacity: 0.8;">{}</p>
+    </div>
+    """.format(
+        sol_balance(test_pubkey),
+        tpc_balance(test_pubkey),
+        test_pubkey
+    ), unsafe_allow_html=True)
     if token_exists:
         explorer_link = f"{current_network['explorer']}/address/{test_pubkey}?cluster={network}"
         st.write(f"[🔍 Explorer]({explorer_link})")
@@ -325,3 +356,11 @@ if st.button("Envoyer au wallet test", type="primary"):
                 st.error(f"Erreur lors du transfert : {e}")
 
 st.caption(f"Dashboard Topocoin • {current_network['name']} • 2025")
+
+# Footer stylé
+st.markdown("""
+<div class="footer">
+    <p>🚀 <strong>Topocoin Dashboard</strong> - Votre passerelle vers la blockchain Solana</p>
+    <p>💡 Construit avec ❤️ utilisant Streamlit & Solana</p>
+</div>
+""", unsafe_allow_html=True)

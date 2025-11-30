@@ -1,0 +1,316 @@
+/* Custom CSS for Topocoin Dashboard */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+[data-testid="stHeader"] {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-testid="stSidebar"] {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+h1, h2, h3 {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem !important;
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+}
+
+/* Button Styling */
+.stButton > button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6) !important;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0px) !important;
+}
+
+/* Primary Button (Mint/Send) */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #ff5252 0%, #d84315 100%) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6) !important;
+}
+
+/* Card Styling */
+[data-testid="stVerticalBlock"] > div {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar Cards */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    margin: 8px 0;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stNumberInput > div > div > input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+}
+
+/* Select Box */
+.stSelectbox > div > div {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+.stSelectbox > div > div:hover {
+    border-color: #667eea !important;
+}
+
+/* Success Messages */
+.stSuccess {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3) !important;
+}
+
+/* Error Messages */
+.stError {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 15px rgba(248, 113, 113, 0.3) !important;
+}
+
+/* Warning Messages */
+.stWarning {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Info Messages */
+.stInfo {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3) !important;
+}
+
+/* Code Blocks */
+.stCodeBlock {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 16px !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+[data-testid="stSidebar"] .streamlit-expanderHeader {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Logo Container */
+.logo-container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Balance Cards */
+.balance-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 10px 0;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.balance-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.balance-card .amount {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Network Badge */
+.network-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+}
+
+.network-devnet {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+}
+
+.network-mainnet {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    color: white;
+}
+
+/* Loading Spinner */
+.stSpinner {
+    text-align: center;
+    padding: 40px;
+}
+
+.stSpinner > div {
+    border-color: #667eea !important;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    [data-testid="stAppViewContainer"] {
+        padding: 1rem;
+    }
+
+    .balance-card {
+        padding: 15px;
+    }
+
+    .balance-card .amount {
+        font-size: 20px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.8);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+[data-testid="stVerticalBlock"] > div {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Hover Effects */
+.balance-card:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.streamlit-expanderHeader:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+    transition: all 0.3s ease;
+}
